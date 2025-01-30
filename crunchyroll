@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حسابات Crunchyroll</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #FFA500;
+        }
+        .account-container {
+            background: #1e1e1e;
+            padding: 15px;
+            margin: 10px auto;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
+        }
+        .hidden {
+            display: none;
+        }
+        .take-btn {
+            background: #FFA500;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .take-btn:disabled {
+            background: gray;
+            cursor: not-allowed;
+        }
+        .instagram-btn {
+            background: #E1306C;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🔥 حسابات Crunchyroll 🔥</h1>
+    <p>🌍 تم التكوين بواسطة: <strong>Hosni_Rayen</strong> 🌍</p>
+
+    <div id="accountContainer" class="account-container">
+        <p id="noMoreAccounts" class="hidden">❌ نفدت الكمية ❌</p>
+        <div id="accountInfo"></div>
+        <button id="takeAccountBtn" class="take-btn">🎁 أخذ الحساب</button>
+    </div>
+
+    <!-- زر التواصل عبر إنستغرام -->
+    <button class="instagram-btn" onclick="window.open('https://www.instagram.com/hosni__105?igsh=MzhkMGkwazI4b2tw', '_blank')">
+        📩 تواصل معي على إنستغرام 📩
+    </button>
+
+    <script>
+        let accounts = [
+            { email: "chennells3@gmail.com", password: "C@rn1c3ll1", plan: "★ FAN MEMBER ★", country: "Pakistan 🇵🇰", daysLeft: 11 },
+            { email: "warrenolson@gmail.com", password: "Pawn1cth$!", plan: "★ FAN MEMBER ★", country: "USA 🇺🇸", daysLeft: 21 },
+            { email: "bigslatschi@yahoo.de", password: "*&B*_akw6$j9jaA", plan: "★ FAN MEMBER ★", country: "Germany 🇩🇪", daysLeft: 6 },
+            { email: "miggypocampo@gmail.com", password: "ThisisYoku@1234", plan: "★ FAN MEMBER ★", country: "Philippines 🇵🇭", daysLeft: 20 },
+            { email: "shostypluh159@gmail.com", password: "IMNOTALEXX159", plan: "★ FAN MEMBER ★", country: "Mexico 🇲🇽", daysLeft: 23 },
+            { email: "fary63955@gmail.com", password: "crunchifary35", plan: "★ FAN MEMBER (1 YEAR) ★", country: "Argentina 🇦🇷", daysLeft: 50 },
+            { email: "kidshammel@gmail.com", password: "Fcy-1284!", plan: "★ FAN MEMBER (1 YEAR) ★", country: "Germany 🇩🇪", daysLeft: 91 },
+            { email: "stianmfols@live.no", password: "#Helmet26", plan: "★ FAN MEMBER ★", country: "Norway 🇳🇴", daysLeft: 25 },
+            { email: "tainanaugusto2013@gmail.com", password: "koda2708", plan: "★ FAN MEMBER ★", country: "Brazil 🇧🇷", daysLeft: 18 },
+            { email: "tp.martmkk7197@gmail.com", password: "mart7197", plan: "★ FAN MEMBER ★", country: "USA 🇺🇸", daysLeft: 28 }
+        ];
+
+        let hasTakenAccount = false; // هل أخذ المستخدم حسابًا؟
+
+        function showAccount() {
+            if (hasTakenAccount) {
+                alert("❌ لا يمكنك أخذ أكثر من حساب! \n 🚫 هذا مرفوض من قِبل Hosni_Rayen 🚫");
+                return;
+            }
+
+            if (accounts.length === 0) {
+                document.getElementById("accountInfo").innerHTML = "";
+                document.getElementById("takeAccountBtn").style.display = "none";
+                document.getElementById("noMoreAccounts").classList.remove("hidden");
+                return;
+            }
+
+            const account = accounts.pop();
+            document.getElementById("accountInfo").innerHTML = `
+                📧 <strong>Email:</strong> ${account.email}<br>
+                🔑 <strong>Password:</strong> ${account.password}<br>
+                📜 <strong>Plan:</strong> ${account.plan}<br>
+                🌍 <strong>Country:</strong> ${account.country}<br>
+                ⏳ <strong>Days Left:</strong> ${account.daysLeft} يومًا<br>
+                ⚙️ <strong>Configured By:</strong> Hosni_Rayen
+            `;
+
+            hasTakenAccount = true; // منع المستخدم من أخذ حساب آخر
+        }
+
+        document.getElementById("takeAccountBtn").addEventListener("click", showAccount);
+    </script>
+
+</body>
+</html>
